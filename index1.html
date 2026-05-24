@@ -1,0 +1,2379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDGE Education — Work-Ready Talent, Delivered</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #080d0a;
+            --bg2: #0c1410;
+            --bg3: #111a14;
+            --surface: #162019;
+            --border: rgba(255, 255, 255, 0.07);
+            --white: #ffffff;
+            --off: rgba(255, 255, 255, 0.58);
+            --dim: rgba(255, 255, 255, 0.28);
+            --green: #1a9e6e;
+            --green2: #0d7a52;
+            --mint: #4dffa0;
+            --lime: #b8ff57;
+            --gold: #f5c842;
+            --coral: #ff6b4a;
+
+            --ff-head: 'Syne', sans-serif;
+            --ff-body: 'Epilogue', sans-serif;
+            --r: 16px;
+            --r-lg: 24px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--ff-body);
+            background: var(--bg);
+            color: var(--white);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            opacity: 0.022;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 48px;
+            transition: background 0.4s, border-color 0.4s;
+            border-bottom: 1px solid transparent;
+        }
+
+        nav.scrolled {
+            background: rgba(8, 13, 10, 0.94);
+            backdrop-filter: blur(18px);
+            border-color: var(--border);
+        }
+
+        .logo {
+            font-family: var(--ff-head);
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-badge {
+            background: var(--green);
+            color: #fff;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            padding: 3px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--off);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            font-family: var(--ff-body);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s;
+            white-space: nowrap;
+        }
+
+        .btn-sm {
+            padding: 9px 20px;
+            font-size: 0.82rem;
+        }
+
+        .btn-md {
+            padding: 13px 28px;
+            font-size: 0.9rem;
+        }
+
+        .btn-lg {
+            padding: 16px 36px;
+            font-size: 1rem;
+        }
+
+        .btn-outline {
+            border: 1.5px solid var(--border);
+            color: var(--off);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: rgba(255, 255, 255, 0.28);
+            color: var(--white);
+        }
+
+        .btn-green {
+            background: var(--green);
+            color: #fff;
+            border: none;
+            font-weight: 700;
+        }
+
+        .btn-green:hover {
+            background: #1fb87e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(26, 158, 110, 0.35);
+        }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--white);
+            border: 1px solid var(--border);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .ham {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 201;
+        }
+
+        .ham span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .ham.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .ham.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .ham.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mob-nav {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 199;
+            background: var(--bg);
+            flex-direction: column;
+            padding: 90px 28px 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mob-nav.open {
+            display: flex;
+        }
+
+        .mob-nav a {
+            padding: 16px 0;
+            font-size: 1.5rem;
+            font-family: var(--ff-head);
+            font-weight: 700;
+            color: var(--off);
+            border-bottom: 1px solid var(--border);
+            transition: color 0.2s;
+        }
+
+        .mob-nav a:hover {
+            color: var(--white);
+        }
+
+        .mob-ctas {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        /* ── HERO ── */
+        #hero {
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            padding: 130px 48px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-glow {
+            position: absolute;
+            pointer-events: none;
+            border-radius: 50%;
+            filter: blur(130px);
+            opacity: 0.14;
+        }
+
+        .hero-glow.g1 {
+            width: 640px;
+            height: 640px;
+            background: var(--green);
+            top: -120px;
+            right: -120px;
+        }
+
+        .hero-glow.g2 {
+            width: 360px;
+            height: 360px;
+            background: var(--mint);
+            bottom: -60px;
+            left: -80px;
+        }
+
+        .hero-grid {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 64px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(26, 158, 110, 0.12);
+            border: 1px solid rgba(26, 158, 110, 0.3);
+            border-radius: 50px;
+            padding: 6px 14px 6px 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--mint);
+            margin-bottom: 22px;
+            animation: fadeUp 0.5s ease both;
+        }
+
+        .hero-label-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--mint);
+        }
+
+        h1.hero-title {
+            font-family: var(--ff-head);
+            font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+            font-weight: 800;
+            line-height: 1.0;
+            letter-spacing: -0.03em;
+            margin-bottom: 22px;
+            animation: fadeUp 0.5s 0.08s ease both;
+        }
+
+        .hero-title .accent {
+            color: var(--mint);
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 2vw, 1.12rem);
+            color: var(--off);
+            line-height: 1.8;
+            max-width: 520px;
+            margin-bottom: 36px;
+            font-weight: 300;
+            animation: fadeUp 0.5s 0.16s ease both;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            animation: fadeUp 0.5s 0.24s ease both;
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            margin-top: 52px;
+            padding-top: 36px;
+            border-top: 1px solid var(--border);
+            animation: fadeUp 0.5s 0.32s ease both;
+        }
+
+        .hstat-num {
+            font-family: var(--ff-head);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--white);
+            display: block;
+        }
+
+        .hstat-num span {
+            color: var(--mint);
+        }
+
+        .hstat-lbl {
+            font-size: 0.8rem;
+            color: var(--dim);
+        }
+
+        /* hero right card */
+        .hero-visual {
+            position: relative;
+            animation: fadeUp 0.6s 0.2s ease both;
+        }
+
+        .hero-card-main {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            padding: 28px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-card-main::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: var(--r-lg);
+            background: linear-gradient(135deg, rgba(26, 158, 110, 0.06), rgba(184, 255, 87, 0.03));
+            pointer-events: none;
+        }
+
+        .hcard-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 18px;
+        }
+
+        .hcard-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--green), var(--green2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .hcard-badge {
+            background: rgba(184, 255, 87, 0.12);
+            border: 1px solid rgba(184, 255, 87, 0.3);
+            border-radius: 50px;
+            padding: 4px 12px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--lime);
+        }
+
+        .hcard-name {
+            font-family: var(--ff-head);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .hcard-role {
+            font-size: 0.82rem;
+            color: var(--off);
+        }
+
+        .hcard-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 18px 0;
+        }
+
+        .hcard-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .hcard-stat-lbl {
+            font-size: 0.75rem;
+            color: var(--dim);
+            margin-bottom: 2px;
+        }
+
+        .hcard-stat-val {
+            font-family: var(--ff-head);
+            font-size: 1.05rem;
+            font-weight: 700;
+        }
+
+        .hcard-stat-val.g {
+            color: var(--mint);
+        }
+
+        .hero-float {
+            position: absolute;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 13px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            z-index: 3;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-float.f1 {
+            bottom: -22px;
+            left: -44px;
+        }
+
+        .hero-float.f2 {
+            top: -18px;
+            right: -32px;
+            animation-delay: -2s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-9px)
+            }
+        }
+
+        .float-text {
+            font-size: 0.78rem;
+        }
+
+        .float-text strong {
+            display: block;
+            font-weight: 700;
+            font-size: 0.84rem;
+        }
+
+        .float-text span {
+            color: var(--dim);
+        }
+
+        .float-icon {
+            font-size: 1.3rem;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* ── TICKER ── */
+        .ticker {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 14px 0;
+            overflow: hidden;
+        }
+
+        .ticker-inner {
+            display: inline-flex;
+            animation: tickerScroll 22s linear infinite;
+        }
+
+        .ticker-inner span {
+            white-space: nowrap;
+            padding: 0 24px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--dim);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .ticker-inner span.hi {
+            color: var(--mint);
+        }
+
+        @keyframes tickerScroll {
+            from {
+                transform: translateX(0)
+            }
+
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        /* ── SECTION BASE ── */
+        .sec {
+            padding: 96px 48px;
+        }
+
+        .sec-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .sec-label {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--mint);
+            margin-bottom: 14px;
+        }
+
+        .sec-title {
+            font-family: var(--ff-head);
+            font-size: clamp(1.9rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .sec-desc {
+            font-size: 1rem;
+            color: var(--off);
+            line-height: 1.8;
+            font-weight: 300;
+            max-width: 560px;
+        }
+
+        /* ── REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.vis {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-d1 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-d2 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-d3 {
+            transition-delay: 0.3s;
+        }
+
+        .reveal-d4 {
+            transition-delay: 0.4s;
+        }
+
+        /* ── ABOUT ── */
+        #about {
+            background: var(--bg2);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .about-card {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 24px 28px;
+            border-left: 3px solid var(--green);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .about-card:hover {
+            border-left-color: var(--mint);
+            transform: translateX(4px);
+        }
+
+        .about-card h4 {
+            font-family: var(--ff-head);
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--mint);
+        }
+
+        .about-card p {
+            font-size: 0.87rem;
+            color: var(--off);
+            line-height: 1.65;
+        }
+
+        /* ── STATS STRIP ── */
+        .stats-strip {
+            background: var(--green);
+            border-radius: var(--r-lg);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            overflow: hidden;
+            margin-top: 56px;
+        }
+
+        .stat-item {
+            padding: 40px 36px;
+            text-align: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.15);
+            transition: background 0.3s;
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .stat-num {
+            font-family: var(--ff-head);
+            font-size: 3rem;
+            font-weight: 800;
+            color: #fff;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .stat-lbl {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        .stat-desc {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.55);
+            margin-top: 4px;
+        }
+
+        /* ── HOW IT WORKS ── */
+        #how {
+            background: var(--bg);
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            background: var(--border);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            margin-top: 56px;
+        }
+
+        .how-step {
+            background: var(--bg);
+            padding: 36px 28px;
+            position: relative;
+            transition: background 0.3s;
+        }
+
+        .how-step:hover {
+            background: var(--surface);
+        }
+
+        .step-num {
+            font-family: var(--ff-head);
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.04);
+            line-height: 1;
+            margin-bottom: 16px;
+            transition: color 0.3s;
+        }
+
+        .how-step:hover .step-num {
+            color: rgba(26, 158, 110, 0.12);
+        }
+
+        .step-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(26, 158, 110, 0.1);
+            border: 1px solid rgba(26, 158, 110, 0.22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+
+        .how-step h3 {
+            font-family: var(--ff-head);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .how-step p {
+            font-size: 0.85rem;
+            color: var(--off);
+            line-height: 1.6;
+        }
+
+        .step-connector {
+            position: absolute;
+            right: -1px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--green);
+            border-radius: 50%;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            color: #fff;
+        }
+
+        .how-step:last-child .step-connector {
+            display: none;
+        }
+
+        /* ── SERVICES ── */
+        #services {
+            background: var(--bg2);
+        }
+
+        .services-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .svc-card {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            padding: 32px 28px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: default;
+        }
+
+        .svc-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--green), var(--mint));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .svc-card:hover {
+            border-color: rgba(26, 158, 110, 0.3);
+            transform: translateY(-6px);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .svc-card:hover::after {
+            opacity: 1;
+        }
+
+        .svc-card.featured-svc {
+            background: linear-gradient(145deg, rgba(26, 158, 110, 0.1) 0%, rgba(184, 255, 87, 0.04) 100%);
+            border-color: rgba(26, 158, 110, 0.22);
+            grid-row: span 2;
+        }
+
+        .svc-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            transition: background 0.3s;
+        }
+
+        .svc-card:hover .svc-icon {
+            background: rgba(26, 158, 110, 0.12);
+        }
+
+        .svc-card h3 {
+            font-family: var(--ff-head);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .svc-card p {
+            font-size: 0.87rem;
+            color: var(--off);
+            line-height: 1.65;
+            flex: 1;
+            margin-bottom: 24px;
+        }
+
+        .svc-list {
+            list-style: none;
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        .svc-list li {
+            font-size: 0.83rem;
+            color: var(--off);
+            padding: 5px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .svc-list li::before {
+            content: "→";
+            color: var(--mint);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .svc-list li:last-child {
+            border-bottom: none;
+        }
+
+        .svc-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--mint);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .svc-tag::after {
+            content: "↗";
+        }
+
+        /* ── LABOR INITIATIVE ── */
+        #initiative {
+            background: var(--bg);
+        }
+
+        .initiative-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 72px;
+            align-items: center;
+        }
+
+        .initiative-results {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .result-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 22px;
+            border-top: 2px solid var(--green);
+            transition: border-color 0.3s;
+        }
+
+        .result-card:hover {
+            border-top-color: var(--mint);
+        }
+
+        .result-num {
+            font-family: var(--ff-head);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--mint);
+        }
+
+        .result-lbl {
+            font-size: 0.8rem;
+            color: var(--off);
+            margin-top: 4px;
+        }
+
+        .initiative-text p {
+            font-size: 0.97rem;
+            color: var(--off);
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 16px;
+        }
+
+        .initiative-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(26, 158, 110, 0.12);
+            border: 1px solid rgba(26, 158, 110, 0.28);
+            border-radius: 50px;
+            padding: 8px 16px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--mint);
+            margin-bottom: 24px;
+        }
+
+        /* ── TEAM ── */
+        #team {
+            background: var(--bg2);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 48px;
+        }
+
+        .team-card {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            padding: 28px 24px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--green), var(--mint));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .team-card:hover::before {
+            opacity: 1;
+        }
+
+        .team-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            background: linear-gradient(135deg, var(--green), var(--green2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-family: var(--ff-head);
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .team-name {
+            font-family: var(--ff-head);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .team-role {
+            font-size: 0.8rem;
+            color: var(--off);
+        }
+
+        /* ── CEO MESSAGE ── */
+        #ceo {
+            background: var(--bg3);
+        }
+
+        .ceo-inner {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .ceo-visual {
+            position: relative;
+        }
+
+        .ceo-img-wrap {
+            background: linear-gradient(145deg, rgba(26, 158, 110, 0.15), rgba(13, 122, 82, 0.08));
+            border: 1px solid rgba(26, 158, 110, 0.25);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .ceo-avatar-large {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 18px;
+            background: linear-gradient(135deg, var(--green), var(--green2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-family: var(--ff-head);
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .ceo-quote-block {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(26, 158, 110, 0.08);
+            border-radius: 12px;
+            border-left: 3px solid var(--green);
+        }
+
+        .ceo-quote-block p {
+            font-size: 0.85rem;
+            color: var(--off);
+            line-height: 1.65;
+            font-style: italic;
+        }
+
+        .ceo-quote-block cite {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.78rem;
+            color: var(--mint);
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        .ceo-content p {
+            font-size: 0.97rem;
+            color: var(--off);
+            line-height: 1.82;
+            font-weight: 300;
+            margin-bottom: 18px;
+        }
+
+        .signature {
+            font-family: Georgia, serif;
+            font-style: italic;
+            font-size: 1.6rem;
+            color: var(--mint);
+            letter-spacing: 0.04em;
+            margin-top: 12px;
+        }
+
+        .ceo-name {
+            font-family: var(--ff-head);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 6px;
+        }
+
+        .ceo-title-lbl {
+            font-size: 0.82rem;
+            color: var(--dim);
+        }
+
+        /* ── GOVERNMENT PARTNERS ── */
+        #gov-partners {
+            background: var(--bg);
+        }
+
+        .gov-header {
+            margin-bottom: 48px;
+        }
+
+        .gov-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .gov-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 28px 24px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .gov-card:hover {
+            border-color: rgba(245, 200, 66, 0.35);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .gov-icon {
+            font-size: 2.4rem;
+            margin-bottom: 14px;
+        }
+
+        .gov-name {
+            font-family: var(--ff-head);
+            font-size: 0.92rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--white);
+        }
+
+        .gov-type {
+            font-size: 0.75rem;
+            color: var(--dim);
+            display: inline-block;
+            margin-top: 8px;
+            background: rgba(245, 200, 66, 0.1);
+            border: 1px solid rgba(245, 200, 66, 0.2);
+            border-radius: 50px;
+            padding: 3px 10px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .gov-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: rgba(245, 200, 66, 0.12);
+            border: 1px solid rgba(245, 200, 66, 0.25);
+            border-radius: 50px;
+            padding: 3px 8px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        /* ── CLIENTS ── */
+        #clients {
+            background: var(--bg2);
+        }
+
+        .clients-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 2px;
+            background: var(--border);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+        }
+
+        .client-cell {
+            background: var(--bg2);
+            padding: 24px 16px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.25s;
+            cursor: default;
+        }
+
+        .client-cell:hover {
+            background: var(--surface);
+        }
+
+        .client-name {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--dim);
+        }
+
+        .sectors-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .sector-pill {
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--off);
+            transition: all 0.25s;
+        }
+
+        .sector-pill:hover {
+            border-color: rgba(26, 158, 110, 0.3);
+            color: var(--mint);
+        }
+
+        /* ── STRATEGIC PARTNERSHIP ── */
+        #partnership {
+            background: var(--bg);
+        }
+
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 48px;
+        }
+
+        .partner-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--r-lg);
+            padding: 32px 28px;
+            transition: all 0.3s;
+        }
+
+        .partner-card:hover {
+            border-color: rgba(26, 158, 110, 0.25);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.4);
+        }
+
+        .partner-card.highlight {
+            background: linear-gradient(145deg, rgba(26, 158, 110, 0.1), rgba(0, 0, 0, 0));
+            border-color: rgba(26, 158, 110, 0.22);
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .pc-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .pc-title {
+            font-family: var(--ff-head);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .pc-list {
+            list-style: none;
+        }
+
+        .pc-list li {
+            font-size: 0.85rem;
+            color: var(--off);
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pc-list li::before {
+            content: "✓";
+            color: var(--mint);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .pc-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* ── CTA BAND ── */
+        #cta {
+            background: var(--bg2);
+        }
+
+        .cta-band {
+            max-width: 1140px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(26, 158, 110, 0.1) 0%, rgba(184, 255, 87, 0.05) 100%);
+            border: 1px solid rgba(26, 158, 110, 0.22);
+            border-radius: 32px;
+            padding: 72px 60px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-band::before {
+            content: "";
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: var(--green);
+            filter: blur(100px);
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .cta-band h2 {
+            font-family: var(--ff-head);
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .cta-band p {
+            font-size: 1rem;
+            color: var(--off);
+            line-height: 1.75;
+            max-width: 480px;
+        }
+
+        .cta-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            padding: 64px 48px 32px;
+        }
+
+        .footer-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand p {
+            font-size: 0.87rem;
+            color: var(--off);
+            line-height: 1.7;
+            margin-top: 12px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .social-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .social-btn:hover {
+            background: rgba(26, 158, 110, 0.15);
+            border-color: rgba(26, 158, 110, 0.3);
+        }
+
+        .footer-col h5 {
+            font-family: var(--ff-head);
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            font-size: 0.84rem;
+            color: var(--off);
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-bottom span {
+            font-size: 0.8rem;
+            color: var(--dim);
+        }
+
+        .footer-bottom a {
+            color: var(--mint);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+
+            .hero-grid,
+            .about-grid,
+            .initiative-inner,
+            .ceo-inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .hero-visual,
+            .ceo-visual {
+                max-width: 480px;
+            }
+
+            .services-grid,
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .svc-card.featured-svc {
+                grid-row: span 1;
+            }
+
+            .how-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .partner-card.highlight {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 24px;
+            }
+
+            .nav-links,
+            .nav-ctas {
+                display: none;
+            }
+
+            .ham {
+                display: flex;
+            }
+
+            .sec {
+                padding: 72px 24px;
+            }
+
+            #hero {
+                padding: 100px 24px 60px;
+            }
+
+            .hero-float {
+                display: none;
+            }
+
+            .stats-strip {
+                grid-template-columns: 1fr;
+            }
+
+            .how-grid,
+            .services-grid,
+            .team-grid,
+            .gov-grid,
+            .partner-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .clients-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .sectors-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-band {
+                grid-template-columns: 1fr;
+                padding: 40px 28px;
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .partner-card.highlight {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── NAV ── -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <span class="logo-badge">EDGE</span> Education
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#initiative">Initiative</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#gov-partners">Partners</a></li>
+            <li><a href="#clients">Clients</a></li>
+        </ul>
+        <div class="nav-ctas">
+            <a href="#cta" class="btn btn-sm btn-outline">Contact Us</a>
+            <a href="#services" class="btn btn-sm btn-green">Our Services</a>
+        </div>
+        <div class="ham" id="ham"><span></span><span></span><span></span></div>
+    </nav>
+
+    <!-- ── MOB NAV ── -->
+    <nav class="mob-nav" id="mobNav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#initiative">Initiative</a>
+        <a href="#team">Team</a>
+        <a href="#gov-partners">Partners</a>
+        <a href="#clients">Clients</a>
+        <div class="mob-ctas">
+            <a href="#cta" class="btn btn-md btn-green">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section id="hero">
+        <div class="hero-glow g1"></div>
+        <div class="hero-glow g2"></div>
+        <div class="hero-grid">
+            <div class="hero-content">
+                <div class="hero-label"><span class="hero-label-dot"></span> Pre-Employment Training & Recruitment</div>
+                <h1 class="hero-title">Work-Ready<br>Talent,<br><span class="accent">Delivered.</span></h1>
+                <p class="hero-sub">We bridge the gap between education and the labor market — preparing qualified
+                    candidates and delivering them fully equipped to perform, contribute, and grow from day one.</p>
+                <div class="hero-actions">
+                    <a href="#services" class="btn btn-lg btn-green">Explore Our Services</a>
+                    <a href="#cta" class="btn btn-lg btn-ghost">Partner With Us</a>
+                </div>
+                <div class="hero-stats">
+                    <div>
+                        <span class="hstat-num">100<span>K</span></span>
+                        <span class="hstat-lbl">Elite Talent Pool</span>
+                    </div>
+                    <div>
+                        <span class="hstat-num">20<span>K</span></span>
+                        <span class="hstat-lbl">End-to-End Hires</span>
+                    </div>
+                    <div>
+                        <span class="hstat-num">82<span>%</span></span>
+                        <span class="hstat-lbl">Day-One Readiness Rate</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card-main">
+                    <div class="hcard-top">
+                        <div class="hcard-icon">🎯</div>
+                        <span class="hcard-badge">Active Placements</span>
+                    </div>
+                    <div class="hcard-name">Candidate Readiness Dashboard</div>
+                    <div class="hcard-role">EDGE Education · Talent Pipeline</div>
+                    <div class="hcard-divider"></div>
+                    <div class="hcard-row">
+                        <div>
+                            <div class="hcard-stat-lbl">Trained Candidates</div>
+                            <div class="hcard-stat-val g">1,300+</div>
+                        </div>
+                        <div>
+                            <div class="hcard-stat-lbl">Job Placements</div>
+                            <div class="hcard-stat-val g">500+</div>
+                        </div>
+                    </div>
+                    <div class="hcard-row">
+                        <div>
+                            <div class="hcard-stat-lbl">Partner Companies</div>
+                            <div class="hcard-stat-val">50+</div>
+                        </div>
+                        <div>
+                            <div class="hcard-stat-lbl">Industries Served</div>
+                            <div class="hcard-stat-val">7+</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-float f1">
+                    <span class="float-icon">✅</span>
+                    <div class="float-text"><strong>Pre-Qualified</strong><span>Assessed & Work-Ready</span></div>
+                </div>
+                <div class="hero-float f2">
+                    <span class="float-icon">🤝</span>
+                    <div class="float-text"><strong>Strategic Partner</strong><span>Long-Term Growth</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── TICKER ── -->
+    <div class="ticker">
+        <div class="ticker-inner">
+            <span class="hi">PRE-EMPLOYMENT TRAINING</span>
+            <span>·</span>
+            <span>TALENT ACQUISITION</span>
+            <span>·</span>
+            <span class="hi">WORKFORCE DEVELOPMENT</span>
+            <span>·</span>
+            <span>ECONOMIC EMPOWERMENT</span>
+            <span>·</span>
+            <span class="hi">CORPORATE TRAINING</span>
+            <span>·</span>
+            <span>TEAM BUILDING</span>
+            <span>·</span>
+            <span class="hi">LABOR MARKET PENETRATION</span>
+            <span>·</span>
+            <span>PERFORMANCE-DRIVEN HIRING</span>
+            <span>·</span>
+            <!-- duplicate -->
+            <span class="hi">PRE-EMPLOYMENT TRAINING</span>
+            <span>·</span>
+            <span>TALENT ACQUISITION</span>
+            <span>·</span>
+            <span class="hi">WORKFORCE DEVELOPMENT</span>
+            <span>·</span>
+            <span>ECONOMIC EMPOWERMENT</span>
+            <span>·</span>
+            <span class="hi">CORPORATE TRAINING</span>
+            <span>·</span>
+            <span>TEAM BUILDING</span>
+            <span>·</span>
+            <span class="hi">LABOR MARKET PENETRATION</span>
+            <span>·</span>
+            <span>PERFORMANCE-DRIVEN HIRING</span>
+            <span>·</span>
+        </div>
+    </div>
+
+    <!-- ── ABOUT ── -->
+    <section id="about" class="sec">
+        <div class="sec-inner">
+            <div class="about-grid">
+                <div>
+                    <span class="sec-label reveal">About EDGE Education</span>
+                    <h2 class="sec-title reveal">We Don't Send CVs.<br>We Deliver <span
+                            style="color:var(--mint)">Professionals.</span></h2>
+                    <p class="sec-desc reveal">EDGE Education is a specialized Pre-Employment Training, Recruitment, and
+                        Economic Empowerment company dedicated to helping organizations access work-ready,
+                        high-performance talent.</p>
+                    <p class="sec-desc reveal" style="margin-top:16px">For us, recruitment is not about filling
+                        vacancies — it is about building productive teams that drive measurable business results.</p>
+                    <a href="#services" class="btn btn-md btn-green reveal" style="margin-top:32px">Explore Services</a>
+                </div>
+                <div class="about-cards">
+                    <div class="about-card reveal">
+                        <h4>🎯 Vision</h4>
+                        <p>To become a leading workforce development and recruitment partner for organizations seeking
+                            qualified, reliable, and performance-driven talent.</p>
+                    </div>
+                    <div class="about-card reveal reveal-d1">
+                        <h4>🚀 Mission</h4>
+                        <p>To empower businesses by providing pre-qualified, trained, and assessed candidates while
+                            enabling sustainable workforce growth and long-term organizational success.</p>
+                    </div>
+                    <div class="about-card reveal reveal-d2">
+                        <h4>💎 Core Value</h4>
+                        <p>We deliver prepared, evaluated, and work-ready professionals — candidates fully aligned with
+                            your organizational objectives, ensuring immediate impact from day one.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-strip reveal">
+                <div class="stat-item">
+                    <span class="stat-num">100K</span>
+                    <div class="stat-lbl">Elite Talent Pool</div>
+                    <div class="stat-desc">Pre-qualified, assessed, and workplace-ready candidates</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">20K</span>
+                    <div class="stat-lbl">End-to-End Hiring Solutions</div>
+                    <div class="stat-desc">From workforce analysis to post-placement follow-up</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">82%</span>
+                    <div class="stat-lbl">High Readiness Rate</div>
+                    <div class="stat-desc">Candidates prepared to perform with minimal onboarding</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── HOW IT WORKS ── -->
+    <section id="how" class="sec">
+        <div class="sec-inner">
+            <span class="sec-label reveal">Our Process</span>
+            <h2 class="sec-title reveal">Our Approach, Always</h2>
+            <p class="sec-desc reveal">Every candidate we prepare is fully evaluated, professionally trained, and
+                aligned with organizational objectives — transforming recruitment from a transactional process into a
+                long-term partnership.</p>
+            <div class="how-grid">
+                <div class="how-step reveal">
+                    <div class="step-num">01</div>
+                    <div class="step-icon">🔍</div>
+                    <h3>Pre-Qualify</h3>
+                    <p>Candidates are rigorously sourced, screened, and pre-qualified against your specific
+                        organizational requirements.</p>
+                    <div class="step-connector">›</div>
+                </div>
+                <div class="how-step reveal reveal-d1">
+                    <div class="step-num">02</div>
+                    <div class="step-icon">🎓</div>
+                    <h3>Train & Prepare</h3>
+                    <p>We deliver market-driven technical training, soft skills development, workplace simulation, and
+                        interview preparation.</p>
+                    <div class="step-connector">›</div>
+                </div>
+                <div class="how-step reveal reveal-d2">
+                    <div class="step-num">03</div>
+                    <div class="step-icon">📊</div>
+                    <h3>Assess & Evaluate</h3>
+                    <p>Comprehensive behavioral assessments and practical skill evaluations reduce hiring risks and
+                        maximize organizational fit.</p>
+                    <div class="step-connector">›</div>
+                </div>
+                <div class="how-step reveal reveal-d3">
+                    <div class="step-num">04</div>
+                    <div class="step-icon">🚀</div>
+                    <h3>Place & Follow Up</h3>
+                    <p>Candidates are placed with hiring partners with ongoing post-placement follow-up ensuring
+                        sustainable employment outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── SERVICES ── -->
+    <section id="services" class="sec">
+        <div class="sec-inner">
+            <div class="services-header">
+                <div>
+                    <span class="sec-label reveal">What We Offer</span>
+                    <h2 class="sec-title reveal">Our Services<br>For Companies</h2>
+                </div>
+                <a href="#cta" class="btn btn-md btn-green reveal">Work With Us</a>
+            </div>
+            <div class="services-grid">
+                <div class="svc-card featured-svc reveal">
+                    <div class="svc-icon">🎯</div>
+                    <h3>Pre-Employment Training & Talent Preparation</h3>
+                    <p>Practical training programs aligned with real market needs — ensuring candidates are ready before
+                        joining your organization.</p>
+                    <ul class="svc-list">
+                        <li>Market-driven technical training</li>
+                        <li>Soft skills & professional behavior development</li>
+                        <li>Workplace simulation</li>
+                        <li>Business communication training</li>
+                        <li>Interview preparation & assessment</li>
+                        <li>Candidate evaluation & filtering</li>
+                    </ul>
+                    <span class="svc-tag">Learn More</span>
+                </div>
+                <div class="svc-card reveal reveal-d1">
+                    <div class="svc-icon">🤝</div>
+                    <h3>Recruitment & Talent Acquisition</h3>
+                    <p>Identifying and securing the strongest candidates through a structured, risk-reducing process
+                        that saves your HR team time and cost.</p>
+                    <ul class="svc-list">
+                        <li>Job analysis & workforce needs assessment</li>
+                        <li>Targeted candidate sourcing</li>
+                        <li>Pre-screening & structured interviews</li>
+                        <li>Behavioral evaluation</li>
+                        <li>Post-placement follow-up</li>
+                    </ul>
+                    <span class="svc-tag">Learn More</span>
+                </div>
+                <div class="svc-card reveal reveal-d2">
+                    <div class="svc-icon">🌍</div>
+                    <h3>Economic Empowerment & Workforce Development</h3>
+                    <p>Supporting sustainable workforce development by connecting trained candidates directly to hiring
+                        partners and building long-term ecosystems.</p>
+                    <ul class="svc-list">
+                        <li>Connecting candidates to hiring partners</li>
+                        <li>Career fairs & mass recruitment</li>
+                        <li>Structured talent pipelines</li>
+                        <li>Youth employment strategies</li>
+                    </ul>
+                    <span class="svc-tag">Learn More</span>
+                </div>
+                <div class="svc-card reveal reveal-d1">
+                    <div class="svc-icon">👥</div>
+                    <h3>Team Building & Organizational Development</h3>
+                    <p>Customized team development solutions tailored to your company's structure and business
+                        objectives.</p>
+                    <ul class="svc-list">
+                        <li>Team alignment workshops</li>
+                        <li>Leadership development programs</li>
+                        <li>Conflict management strategies</li>
+                        <li>Performance culture building</li>
+                    </ul>
+                    <span class="svc-tag">Learn More</span>
+                </div>
+                <div class="svc-card reveal reveal-d2">
+                    <div class="svc-icon">📈</div>
+                    <h3>Corporate Training & Employee Development</h3>
+                    <p>Measurable performance improvement programs — not theoretical training — focused on real business
+                        outcomes.</p>
+                    <ul class="svc-list">
+                        <li>Leadership & management development</li>
+                        <li>Sales team performance training</li>
+                        <li>Customer service excellence</li>
+                        <li>HR capability development</li>
+                        <li>Annual training plan design</li>
+                    </ul>
+                    <span class="svc-tag">Learn More</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── LABOR INITIATIVE ── -->
+    <section id="initiative" class="sec">
+        <div class="sec-inner">
+            <div class="initiative-inner">
+                <div class="initiative-text reveal">
+                    <span class="initiative-badge">🗺️ Upper Egypt Focus</span>
+                    <span class="sec-label">Case Study</span>
+                    <h2 class="sec-title">Labor Market<br>Penetration Initiative</h2>
+                    <p>A results-driven workforce development program designed to bridge the gap between academic
+                        education and real labor market demands, with a special focus on Upper Egypt.</p>
+                    <p>The program integrates market-driven training, professional readiness development, employer
+                        partnerships, and post-placement follow-up to ensure sustainable employment outcomes.</p>
+                    <p>It now stands as a <strong style="color:var(--mint)">scalable model for youth employment and
+                            workforce development</strong> across Egypt.</p>
+                    <div class="initiative-results">
+                        <div class="result-card">
+                            <div class="result-num">1,300+</div>
+                            <div class="result-lbl">Students Trained from Assiut & Sohag Universities</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-num">500+</div>
+                            <div class="result-lbl">Successful Job Placements Across Multiple Industries</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-num">1 yr</div>
+                            <div class="result-lbl">Achieved Within Just One Year of Launch</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-num">100%</div>
+                            <div class="result-lbl">Market-Aligned Training for Employability Skills</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal reveal-d1">
+                    <div
+                        style="background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:36px;position:relative;overflow:hidden;">
+                        <div
+                            style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--mint))">
+                        </div>
+                        <div style="font-size:2.8rem;margin-bottom:16px;">🎓</div>
+                        <h3 style="font-family:var(--ff-head);font-size:1.2rem;margin-bottom:12px;">Program Impact</h3>
+                        <p style="font-size:0.87rem;color:var(--off);line-height:1.7;margin-bottom:24px;">A
+                            comprehensive program integrating practical skills training, employer partnerships, and
+                            post-placement support to deliver real employment outcomes for youth in Upper Egypt.</p>
+                        <div style="display:flex;flex-direction:column;gap:12px;">
+                            <div
+                                style="display:flex;align-items:center;gap:12px;background:rgba(26,158,110,0.08);border-radius:10px;padding:14px;">
+                                <span style="font-size:1.4rem;">🏫</span>
+                                <div>
+                                    <div style="font-weight:700;font-size:0.88rem;">Assiut University</div>
+                                    <div style="font-size:0.78rem;color:var(--dim);">Partner Institution</div>
+                                </div>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;gap:12px;background:rgba(26,158,110,0.08);border-radius:10px;padding:14px;">
+                                <span style="font-size:1.4rem;">🏫</span>
+                                <div>
+                                    <div style="font-weight:700;font-size:0.88rem;">Sohag University</div>
+                                    <div style="font-size:0.78rem;color:var(--dim);">Partner Institution</div>
+                                </div>
+                            </div>
+                            <div
+                                style="display:flex;align-items:center;gap:12px;background:rgba(26,158,110,0.08);border-radius:10px;padding:14px;">
+                                <span style="font-size:1.4rem;">🏢</span>
+                                <div>
+                                    <div style="font-weight:700;font-size:0.88rem;">Multiple Industry Partners</div>
+                                    <div style="font-size:0.78rem;color:var(--dim);">Hiring & Placement Network</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CEO MESSAGE ── -->
+    <section id="ceo" class="sec">
+        <div class="sec-inner">
+            <span class="sec-label reveal">Leadership</span>
+            <h2 class="sec-title reveal" style="margin-bottom:48px">A Word From<br>Our Founder</h2>
+            <div class="ceo-inner">
+                <div class="ceo-visual reveal">
+                    <div class="ceo-img-wrap">
+                        <div class="ceo-avatar-large">M</div>
+                        <div style="font-family:var(--ff-head);font-size:1rem;font-weight:700;">Mohamed Gamal</div>
+                        <div style="font-size:0.82rem;color:var(--dim);margin-bottom:16px;">Founder & CEO — EDGE
+                            Education</div>
+                        <div class="ceo-quote-block">
+                            <p>"At EDGE, quality and impact are at the core of everything we do — serving as a powerful
+                                bridge between ambition and opportunity."</p>
+                            <cite>— M. Gamal</cite>
+                        </div>
+                    </div>
+                </div>
+                <div class="ceo-content reveal reveal-d1">
+                    <p>At EDGE Education, we believe that real investment begins with people. That is why we are
+                        committed to contributing to community development and advancing economic empowerment by
+                        preparing and developing young talents and connecting them with real opportunities in the labor
+                        market.</p>
+                    <p>We continuously work to identify, nurture, and deliver high-quality talents who can effectively
+                        meet the evolving needs of modern businesses and industries.</p>
+                    <p>We are dedicated to providing professional training and recruitment solutions that help
+                        organizations access the right talents while empowering individuals to build meaningful and
+                        sustainable careers. Our vision is to create lasting value for both companies and the
+                        communities we serve.</p>
+                    <div class="signature">M.Gamal</div>
+                    <div class="ceo-name">Mohamed Gamal</div>
+                    <div class="ceo-title-lbl">CEO — EDGE Education</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── TEAM ── -->
+    <section id="team" class="sec">
+        <div class="sec-inner">
+            <span class="sec-label reveal">Our Team</span>
+            <h2 class="sec-title reveal">The People Behind<br>EDGE Education</h2>
+            <div class="team-grid">
+                <div class="team-card reveal">
+                    <div class="team-avatar">M</div>
+                    <div class="team-name">Mohamed Gamal</div>
+                    <div class="team-role">Founder & Chief Executive Officer</div>
+                </div>
+                <div class="team-card reveal reveal-d1">
+                    <div class="team-avatar">Y</div>
+                    <div class="team-name">Yasmin Gawish</div>
+                    <div class="team-role">Operations Manager</div>
+                </div>
+                <div class="team-card reveal reveal-d2">
+                    <div class="team-avatar">I</div>
+                    <div class="team-name">Ibrahim Samy</div>
+                    <div class="team-role">Head of Project Management</div>
+                </div>
+                <div class="team-card reveal reveal-d3">
+                    <div class="team-avatar">A</div>
+                    <div class="team-name">Ahmed Khaled</div>
+                    <div class="team-role">Business Director</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── GOVERNMENT PARTNERS (FIRST) ── -->
+    <section id="gov-partners" class="sec">
+        <div class="sec-inner">
+            <div class="gov-header">
+                <span class="sec-label reveal">Official Collaboration</span>
+                <h2 class="sec-title reveal">Government<br>Partnerships</h2>
+                <p class="sec-desc reveal">We proudly collaborate with leading governmental institutions that support
+                    innovation, education, and sustainable community development across Egypt.</p>
+            </div>
+            <div class="gov-grid">
+                <div class="gov-card reveal">
+                    <span class="gov-badge">Ministry</span>
+                    <div class="gov-icon">🏛️</div>
+                    <div class="gov-name">Ministry of Higher Education & Scientific Research</div>
+                    <span class="gov-type">Government Partner</span>
+                </div>
+                <div class="gov-card reveal reveal-d1">
+                    <span class="gov-badge">Ministry</span>
+                    <div class="gov-icon">🤲</div>
+                    <div class="gov-name">Ministry of Social Solidarity</div>
+                    <span class="gov-type">Government Partner</span>
+                </div>
+                <div class="gov-card reveal reveal-d2">
+                    <span class="gov-badge">Ministry</span>
+                    <div class="gov-icon">📡</div>
+                    <div class="gov-name">Ministry of Communications & Information Technology</div>
+                    <span class="gov-type">Government Partner</span>
+                </div>
+                <div class="gov-card reveal">
+                    <span class="gov-badge">University</span>
+                    <div class="gov-icon">🎓</div>
+                    <div class="gov-name">Sohag University</div>
+                    <span class="gov-type">Academic Partner</span>
+                </div>
+                <div class="gov-card reveal reveal-d1">
+                    <span class="gov-badge">Initiative</span>
+                    <div class="gov-icon">💻</div>
+                    <div class="gov-name">Creativa — Digital Egypt Creativity Centers</div>
+                    <span class="gov-type">Innovation Partner</span>
+                </div>
+                <div class="gov-card reveal reveal-d2">
+                    <span class="gov-badge">University</span>
+                    <div class="gov-icon">🏫</div>
+                    <div class="gov-name">Assiut University</div>
+                    <span class="gov-type">Academic Partner</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CLIENTS ── -->
+    <section id="clients" class="sec">
+        <div class="sec-inner">
+            <div class="clients-header">
+                <div>
+                    <span class="sec-label reveal">Trusted By</span>
+                    <h2 class="sec-title reveal">Our Clients</h2>
+                    <p class="sec-desc reveal">We strengthen the employment ecosystem by supplying businesses across
+                        Egypt with evaluated, trained, and performance-oriented professionals.</p>
+                </div>
+            </div>
+            <div class="clients-grid reveal">
+                <div class="client-cell"><span class="client-name">National Bank of Egypt</span></div>
+                <div class="client-cell"><span class="client-name">Al Ahly Club</span></div>
+                <div class="client-cell"><span class="client-name">CIB</span></div>
+                <div class="client-cell"><span class="client-name">Mashreq</span></div>
+                <div class="client-cell"><span class="client-name">Bidayety</span></div>
+                <div class="client-cell"><span class="client-name">Vendoor</span></div>
+                <div class="client-cell"><span class="client-name">Cottonil</span></div>
+                <div class="client-cell"><span class="client-name">Mcsab</span></div>
+                <div class="client-cell"><span class="client-name">Tasaheel</span></div>
+                <div class="client-cell"><span class="client-name">Baba El Tawfeer</span></div>
+                <div class="client-cell"><span class="client-name">MetLife</span></div>
+                <div class="client-cell"><span class="client-name">Maar Microfinance</span></div>
+                <div class="client-cell"><span class="client-name">Landbond</span></div>
+                <div class="client-cell"><span class="client-name">Albatross</span></div>
+                <div class="client-cell"><span class="client-name">Vodafone Egypt</span></div>
+                <div class="client-cell"><span class="client-name">Orange Egypt</span></div>
+                <div class="client-cell"><span class="client-name">G4S</span></div>
+                <div class="client-cell"><span class="client-name">Green Tree</span></div>
+                <div class="client-cell"><span class="client-name">King Life</span></div>
+                <div class="client-cell"><span class="client-name">Golden Plaza</span></div>
+                <div class="client-cell"><span class="client-name">Modern Vision</span></div>
+                <div class="client-cell"><span class="client-name">ACUD</span></div>
+                <div class="client-cell"><span class="client-name">Libano-Suisse</span></div>
+                <div class="client-cell"><span class="client-name">Chubb</span></div>
+            </div>
+            <div class="sectors-row reveal" style="margin-top:40px">
+                <div class="sector-pill">🏥 Medical & Healthcare</div>
+                <div class="sector-pill">🏗 Real Estate</div>
+                <div class="sector-pill">💻 IT & Technology</div>
+                <div class="sector-pill">🛍 Retail & E-Commerce</div>
+                <div class="sector-pill">📣 Marketing & Media</div>
+                <div class="sector-pill">💳 Financial Services</div>
+                <div class="sector-pill">🎓 Education & Training</div>
+                <div class="sector-pill">📡 Telecommunications</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── STRATEGIC PARTNERSHIP ── -->
+    <section id="partnership" class="sec">
+        <div class="sec-inner">
+            <span class="sec-label reveal">Collaboration</span>
+            <h2 class="sec-title reveal">Strategic<br>Partnership</h2>
+            <div class="partner-grid">
+                <div class="partner-card highlight reveal">
+                    <div>
+                        <div class="pc-icon">🏆</div>
+                        <div class="pc-title">Why Partner With EDGE?</div>
+                        <ul class="pc-list">
+                            <li>Access to pre-qualified, trained candidates</li>
+                            <li>Reduced recruitment risk</li>
+                            <li>Faster onboarding & productivity</li>
+                            <li>Market-aligned training methodologies</li>
+                            <li>Performance-focused approach</li>
+                            <li>Long-term partnership mindset</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="pc-icon">🤝</div>
+                        <div class="pc-title">Partnership Models</div>
+                        <ul class="pc-list">
+                            <li>Recruitment per hire</li>
+                            <li>Project-based hiring</li>
+                            <li>Mass recruitment initiatives</li>
+                            <li>Corporate training contracts</li>
+                            <li>Long-term workforce development</li>
+                        </ul>
+                        <div
+                            style="margin-top:20px;padding:18px;background:rgba(26,158,110,0.1);border-radius:12px;border:1px solid rgba(26,158,110,0.2);">
+                            <p style="font-size:0.88rem;color:var(--off);line-height:1.7;font-style:italic;">"At EDGE,
+                                we are committed to delivering talent that performs, teams that align, and partnerships
+                                that grow."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section id="cta" class="sec">
+        <div class="cta-band reveal">
+            <div>
+                <h2>Ready to Get Your<br><span style="color:var(--mint)">Edge</span> in the Labor Market?</h2>
+                <p>Join 500+ students and companies who use EDGE Education to build high-performance, work-ready teams.
+                    It starts with one conversation.</p>
+                <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:24px;">
+                    <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--off);">
+                        <span style="color:var(--mint)">📍</span> Maadi, Abrag Othman, Cairo
+                    </div>
+                    <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--off);">
+                        <span style="color:var(--mint)">📞</span> 01095370720
+                    </div>
+                    <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--off);">
+                        <span style="color:var(--mint)">🌐</span> edgeeducation.com
+                    </div>
+                </div>
+            </div>
+            <div class="cta-actions">
+                <a href="tel:01095370720" class="btn btn-lg btn-green">Call Us Now</a>
+                <a href="#services" class="btn btn-lg btn-ghost">View Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="#" class="logo"><span class="logo-badge">EDGE</span> Education</a>
+                <p>Bridging the gap between academic learning and the real labor market — through pre-employment
+                    training, recruitment, and economic empowerment.</p>
+                <div class="footer-socials">
+                    <div class="social-btn">in</div>
+                    <div class="social-btn">f</div>
+                    <div class="social-btn">📸</div>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h5>Services</h5>
+                <ul>
+                    <li><a href="#services">Pre-Employment Training</a></li>
+                    <li><a href="#services">Recruitment & Talent</a></li>
+                    <li><a href="#services">Workforce Development</a></li>
+                    <li><a href="#services">Team Building</a></li>
+                    <li><a href="#services">Corporate Training</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Company</h5>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#initiative">Initiative</a></li>
+                    <li><a href="#partnership">Partnership</a></li>
+                    <li><a href="#clients">Our Clients</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Contact</h5>
+                <ul>
+                    <li><a href="mailto:info@edgeeducation.com">info@edgeeducation.com</a></li>
+                    <li><a href="tel:01095370720">01095370720</a></li>
+                    <li><a href="#">edgeeducation.com</a></li>
+                    <li><a href="#">Maadi, Abrag Othman</a></li>
+                    <li><a href="#">Cairo, Egypt</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 EDGE Education. All rights reserved.</span>
+            <span>Delivering talent that performs · <a href="#">Privacy Policy</a></span>
+        </div>
+    </footer>
+
+    <script>
+        // Nav scroll
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 30));
+
+        // Hamburger
+        const ham = document.getElementById('ham');
+        const mob = document.getElementById('mobNav');
+        ham.addEventListener('click', () => {
+            ham.classList.toggle('open');
+            mob.classList.toggle('open');
+            document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+        });
+        mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            ham.classList.remove('open'); mob.classList.remove('open');
+            document.body.style.overflow = '';
+        }));
+
+        // Scroll reveal
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+        // Animate progress bars on hero
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.progress-fill').forEach(el => {
+                el.style.width = el.dataset.w || '75%';
+            });
+        });
+    </script>
+</body>
+
+</html>
