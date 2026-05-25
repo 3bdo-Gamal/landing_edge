@@ -7,7 +7,7 @@
     <title>EDGE Education — Work-Ready Talent, Delivered</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Syne:wght@700;800&family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
         rel="stylesheet">
     <style>
         :root {
@@ -70,6 +70,224 @@
             pointer-events: none;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
             opacity: 0.022;
+        }
+
+
+        /* ── LIGHT MODE ── */
+        [data-theme="light"] {
+            --bg: #f4f7f6;
+            --bg2: #ffffff;
+            --bg3: #eef2f0;
+            --surface: #ffffff;
+            --border: rgba(0, 0, 0, 0.1);
+            --white: #080d0a;
+            --off: #33403a;
+            --dim: #55665f;
+            --green: #15855c;
+            --green2: #0a6040;
+            --mint: #117549;
+            /* Darker mint for text readability */
+            --lime: #80c814;
+        }
+
+        [data-theme="light"] nav.scrolled {
+            background: rgba(255, 255, 255, 0.94);
+        }
+
+        [data-theme="light"] .hero-glow.g1 {
+            background: rgba(21, 133, 92, 0.4);
+        }
+
+        [data-theme="light"] .hero-glow.g2 {
+            background: rgba(128, 200, 20, 0.4);
+        }
+
+        [data-theme="light"] .btn-ghost {
+            border-color: var(--mint);
+            color: var(--mint);
+        }
+
+        [data-theme="light"] .btn-ghost:hover {
+            background: rgba(17, 117, 73, 0.05);
+        }
+
+        [data-theme="light"] .stat-num,
+        [data-theme="light"] .hstat-num,
+        [data-theme="light"] .hstat-num span {
+            color: #fff;
+        }
+
+        /* stats strip is green bg */
+        [data-theme="light"] .hstat-num {
+            color: var(--mint);
+        }
+
+        [data-theme="light"] .hero-stats .hstat-num {
+            color: var(--green);
+        }
+
+        [data-theme="light"] .hero-stats .hstat-num span {
+            color: var(--mint);
+        }
+
+        [data-theme="light"] .step-num {
+            color: rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="light"] .how-step:hover .step-num {
+            color: rgba(26, 158, 110, 0.15);
+        }
+
+        [data-theme="light"] .ticker-inner span {
+            color: #55665f;
+        }
+
+        [data-theme="light"] .ticker-inner span.hi {
+            color: var(--mint);
+        }
+
+        [data-theme="light"] .svc-icon {
+            background: rgba(0, 0, 0, 0.03);
+        }
+
+        [data-theme="light"] .result-num {
+            color: var(--mint);
+        }
+
+        [data-theme="light"] .ceo-avatar-large {
+            color: #fff;
+        }
+
+        [data-theme="light"] .team-avatar {
+            color: #fff;
+        }
+
+        [data-theme="light"] .gov-name {
+            color: var(--white);
+        }
+
+        [data-theme="light"] .client-name {
+            color: var(--dim);
+        }
+
+        [data-theme="light"] .client-cell {
+            background: #fff;
+            border: 1px solid var(--border);
+        }
+
+        [data-theme="light"] .clients-grid {
+            background: transparent;
+            gap: 8px;
+        }
+
+        [data-theme="light"] .client-cell {
+            border-radius: 8px;
+        }
+
+        .btn-icon {
+            background: rgba(128, 128, 128, 0.1);
+            border: 1px solid var(--border);
+            color: var(--white);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--ff-body);
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .btn-icon:hover {
+            background: rgba(128, 128, 128, 0.2);
+        }
+
+        #langToggle {
+            width: auto;
+            padding: 0 12px;
+            border-radius: 18px;
+        }
+
+        /* ── RTL / ARABIC MODE ── */
+        html[dir="rtl"] {
+            --ff-head: 'Cairo', sans-serif;
+            --ff-body: 'Cairo', sans-serif;
+        }
+
+        html[dir="rtl"] body {
+            text-align: right;
+        }
+
+        html[dir="rtl"] .nav-links {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .hero-grid {
+            direction: rtl;
+        }
+
+        html[dir="rtl"] .about-card {
+            border-left: none;
+            border-right: 3px solid var(--green);
+        }
+
+        html[dir="rtl"] .about-card:hover {
+            border-right-color: var(--mint);
+            transform: translateX(-4px);
+        }
+
+        html[dir="rtl"] .step-connector {
+            right: auto;
+            left: -1px;
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        html[dir="rtl"] .ceo-quote-block {
+            border-left: none;
+            border-right: 3px solid var(--green);
+        }
+
+        html[dir="rtl"] .svc-list li::before,
+        html[dir="rtl"] .pc-list li::before {
+            transform: scaleX(-1);
+            margin-left: 8px;
+            margin-right: 0;
+        }
+
+        html[dir="rtl"] .svc-tag::after {
+            content: "↖";
+        }
+
+        html[dir="rtl"] .hero-float.f1 {
+            left: auto;
+            right: -44px;
+        }
+
+        html[dir="rtl"] .hero-float.f2 {
+            right: auto;
+            left: -32px;
+        }
+
+        html[dir="rtl"] .hero-label-dot {
+            margin-left: 8px;
+            margin-right: 0;
+        }
+
+        html[dir="rtl"] .cta-band::before {
+            right: auto;
+            left: -80px;
+        }
+
+        html[dir="rtl"] .footer-inner {
+            direction: rtl;
+        }
+
+        html[dir="rtl"] .mob-nav {
+            text-align: right;
+            align-items: flex-start;
         }
 
         /* ── NAV ── */
@@ -1670,6 +1888,12 @@
             <li><a href="#gov-partners">Partners</a></li>
             <li><a href="#clients">Clients</a></li>
         </ul>
+
+        <div class="nav-controls" style="display:flex; gap:12px; align-items:center; margin-right: 20px;">
+            <button id="themeToggle" class="btn-icon" title="Toggle Light/Dark Mode">☀️</button>
+            <button id="langToggle" class="btn-icon" title="عربي / English">عربي</button>
+        </div>
+
         <div class="nav-ctas">
             <a href="#cta" class="btn btn-sm btn-outline">Contact Us</a>
             <a href="#services" class="btn btn-sm btn-green">Our Services</a>
@@ -2366,6 +2590,317 @@
             entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
         }, { threshold: 0.08 });
         document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+
+
+        // Advanced Multi-language support
+        const translations = {
+            "EDGE Education — Work-Ready Talent, Delivered": "EDGE Education — مواهب جاهزة للعمل، نقدمها لك",
+            "About": "من نحن",
+            "Services": "خدماتنا",
+            "Initiative": "المبادرة",
+            "Team": "فريق العمل",
+            "Partners": "شركاؤنا",
+            "Clients": "عملاؤنا",
+            "Contact Us": "اتصل بنا",
+            "Our Services": "خدماتنا",
+            "Pre-Employment Training & Recruitment": "التدريب ما قبل التوظيف والتوظيف",
+            "Work-Ready": "مواهب",
+            "Talent,": "جاهزة للعمل،",
+            "Delivered.": "نقدمها لك.",
+            "We bridge the gap between education and the labor market — preparing qualified candidates and delivering them fully equipped to perform, contribute, and grow from day one.": "نحن نسد الفجوة بين التعليم وسوق العمل — من خلال إعداد مرشحين مؤهلين وتقديمهم مجهزين بالكامل للأداء والمساهمة والنمو من اليوم الأول.",
+            "Explore Our Services": "اكتشف خدماتنا",
+            "Partner With Us": "كن شريكاً لنا",
+            "Elite Talent Pool": "نخبة من المواهب",
+            "End-to-End Hires": "عمليات توظيف شاملة",
+            "Day-One Readiness Rate": "معدل الجاهزية من اليوم الأول",
+            "Active Placements": "التوظيف النشط",
+            "Candidate Readiness Dashboard": "لوحة تحكم جاهزية المرشحين",
+            "EDGE Education · Talent Pipeline": "EDGE Education · مسار المواهب",
+            "Trained Candidates": "مرشحون مدربون",
+            "Job Placements": "فرص العمل الموفرة",
+            "Partner Companies": "شركات شريكة",
+            "Industries Served": "قطاعات نخدمها",
+            "Pre-Qualified": "مؤهلون مسبقاً",
+            "Assessed & Work-Ready": "تم تقييمهم وجاهزون للعمل",
+            "Strategic Partner": "شريك استراتيجي",
+            "Long-Term Growth": "نمو طويل الأمد",
+            "PRE-EMPLOYMENT TRAINING": "التدريب ما قبل التوظيف",
+            "TALENT ACQUISITION": "استقطاب المواهب",
+            "WORKFORCE DEVELOPMENT": "تطوير القوى العاملة",
+            "ECONOMIC EMPOWERMENT": "التمكين الاقتصادي",
+            "CORPORATE TRAINING": "تدريب الشركات",
+            "TEAM BUILDING": "بناء فرق العمل",
+            "LABOR MARKET PENETRATION": "دخول سوق العمل",
+            "PERFORMANCE-DRIVEN HIRING": "التوظيف المبني على الأداء",
+            "About EDGE Education": "عن EDGE Education",
+            "We Don't Send CVs.": "نحن لا نرسل سيراً ذاتية.",
+            "We Deliver": "نحن نقدم",
+            "Professionals.": "محترفين.",
+            "EDGE Education is a specialized Pre-Employment Training, Recruitment, and Economic Empowerment company dedicated to helping organizations access work-ready, high-performance talent.": "EDGE Education هي شركة متخصصة في التدريب ما قبل التوظيف، التوظيف، والتمكين الاقتصادي، مكرسة لمساعدة المؤسسات على الوصول إلى مواهب جاهزة للعمل وعالية الأداء.",
+            "For us, recruitment is not about filling vacancies — it is about building productive teams that drive measurable business results.": "بالنسبة لنا، التوظيف ليس مجرد ملء الشواغر — بل هو بناء فرق منتجة تحقق نتائج أعمال ملموسة.",
+            "Explore Services": "استكشف الخدمات",
+            "🎯 Vision": "🎯 الرؤية",
+            "To become a leading workforce development and recruitment partner for organizations seeking qualified, reliable, and performance-driven talent.": "أن نصبح شريكاً رائداً في تطوير القوى العاملة والتوظيف للمؤسسات التي تبحث عن مواهب مؤهلة وموثوقة وموجهة نحو الأداء.",
+            "🚀 Mission": "🚀 المهمة",
+            "To empower businesses by providing pre-qualified, trained, and assessed candidates while enabling sustainable workforce growth and long-term organizational success.": "تمكين الشركات من خلال توفير مرشحين مؤهلين ومدربين ومُقيَّمين مسبقاً، مع تمكين النمو المستدام للقوى العاملة والنجاح المؤسسي طويل الأمد.",
+            "💎 Core Value": "💎 القيم الجوهرية",
+            "We deliver prepared, evaluated, and work-ready professionals — candidates fully aligned with your organizational objectives, ensuring immediate impact from day one.": "نحن نقدم محترفين مُعدين ومُقيَّمين وجاهزين للعمل — مرشحين متوافقين تماماً مع أهدافك المؤسسية، لضمان تأثير فوري من اليوم الأول.",
+            "Pre-qualified, assessed, and workplace-ready candidates": "مرشحون مؤهلون ومقيمون وجاهزون لبيئة العمل",
+            "End-to-End Hiring Solutions": "حلول توظيف شاملة",
+            "From workforce analysis to post-placement follow-up": "من تحليل القوى العاملة إلى متابعة ما بعد التوظيف",
+            "High Readiness Rate": "معدل جاهزية عالٍ",
+            "Candidates prepared to perform with minimal onboarding": "مرشحون مستعدون للأداء بأقل قدر من التدريب الأولي",
+            "Our Process": "عمليتنا",
+            "Our Approach, Always": "نهجنا دائماً",
+            "Every candidate we prepare is fully evaluated, professionally trained, and aligned with organizational objectives — transforming recruitment from a transactional process into a long-term partnership.": "كل مرشح نعده يتم تقييمه بالكامل وتدريبه مهنياً ومواءمته مع الأهداف المؤسسية — مما يحول التوظيف من عملية تعاقدية إلى شراكة طويلة الأمد.",
+            "Pre-Qualify": "التأهيل المسبق",
+            "Candidates are rigorously sourced, screened, and pre-qualified against your specific organizational requirements.": "يتم البحث عن المرشحين بدقة وفحصهم وتأهيلهم مسبقاً بناءً على متطلباتك المؤسسية المحددة.",
+            "Train & Prepare": "التدريب والإعداد",
+            "We deliver market-driven technical training, soft skills development, workplace simulation, and interview preparation.": "نقدم تدريباً تقنياً يحركه السوق، وتطوير المهارات الشخصية، ومحاكاة بيئة العمل، والتحضير للمقابلات.",
+            "Assess & Evaluate": "التقييم والاختبار",
+            "Comprehensive behavioral assessments and practical skill evaluations reduce hiring risks and maximize organizational fit.": "تقلل التقييمات السلوكية الشاملة وتقييمات المهارات العملية من مخاطر التوظيف وتعظم التوافق المؤسسي.",
+            "Place & Follow Up": "التوظيف والمتابعة",
+            "Candidates are placed with hiring partners with ongoing post-placement follow-up ensuring sustainable employment outcomes.": "يتم توظيف المرشحين لدى شركاء التوظيف مع متابعة مستمرة بعد التوظيف لضمان نتائج توظيف مستدامة.",
+            "What We Offer": "ما نقدمه",
+            "For Companies": "للشركات",
+            "Work With Us": "اعمل معنا",
+            "Pre-Employment Training & Talent Preparation": "التدريب ما قبل التوظيف وإعداد المواهب",
+            "Practical training programs aligned with real market needs — ensuring candidates are ready before joining your organization.": "برامج تدريب عملية متوافقة مع احتياجات السوق الحقيقية — لضمان جاهزية المرشحين قبل الانضمام لمؤسستك.",
+            "Market-driven technical training": "تدريب تقني مبني على احتياجات السوق",
+            "Soft skills & professional behavior development": "تطوير المهارات الشخصية والسلوك المهني",
+            "Workplace simulation": "محاكاة بيئة العمل",
+            "Business communication training": "تدريب على اتصالات الأعمال",
+            "Interview preparation & assessment": "التحضير للمقابلات والتقييم",
+            "Candidate evaluation & filtering": "تقييم وفرز المرشحين",
+            "Learn More": "اعرف المزيد",
+            "Recruitment & Talent Acquisition": "التوظيف واستقطاب المواهب",
+            "Identifying and securing the strongest candidates through a structured, risk-reducing process that saves your HR team time and cost.": "تحديد وتأمين أقوى المرشحين من خلال عملية منظمة تقلل المخاطر وتوفر الوقت والتكلفة على فريق الموارد البشرية لديك.",
+            "Job analysis & workforce needs assessment": "تحليل الوظائف وتقييم احتياجات القوى العاملة",
+            "Targeted candidate sourcing": "البحث المستهدف عن المرشحين",
+            "Pre-screening & structured interviews": "الفرز المبدئي والمقابلات المنظمة",
+            "Behavioral evaluation": "التقييم السلوكي",
+            "Post-placement follow-up": "متابعة ما بعد التوظيف",
+            "Economic Empowerment & Workforce Development": "التمكين الاقتصادي وتطوير القوى العاملة",
+            "Supporting sustainable workforce development by connecting trained candidates directly to hiring partners and building long-term ecosystems.": "دعم التنمية المستدامة للقوى العاملة من خلال ربط المرشحين المدربين مباشرة بشركاء التوظيف وبناء أنظمة بيئية طويلة الأمد.",
+            "Connecting candidates to hiring partners": "ربط المرشحين بشركاء التوظيف",
+            "Career fairs & mass recruitment": "معارض التوظيف والتوظيف الجماعي",
+            "Structured talent pipelines": "مسارات مواهب منظمة",
+            "Youth employment strategies": "استراتيجيات توظيف الشباب",
+            "Team Building & Organizational Development": "بناء فرق العمل والتطوير المؤسسي",
+            "Customized team development solutions tailored to your company's structure and business objectives.": "حلول مخصصة لتطوير فرق العمل تناسب هيكل شركتك وأهداف أعمالك.",
+            "Team alignment workshops": "ورش عمل لمواءمة الفرق",
+            "Leadership development programs": "برامج تطوير القيادة",
+            "Conflict management strategies": "استراتيجيات إدارة النزاعات",
+            "Performance culture building": "بناء ثقافة الأداء",
+            "Corporate Training & Employee Development": "تدريب الشركات وتطوير الموظفين",
+            "Measurable performance improvement programs — not theoretical training — focused on real business outcomes.": "برامج لتحسين الأداء قابلة للقياس — وليست تدريباً نظرياً — تركز على نتائج أعمال حقيقية.",
+            "Leadership & management development": "تطوير القيادة والإدارة",
+            "Sales team performance training": "تدريب فرق المبيعات على الأداء",
+            "Customer service excellence": "التميز في خدمة العملاء",
+            "HR capability development": "تطوير قدرات الموارد البشرية",
+            "Annual training plan design": "تصميم خطة التدريب السنوية",
+            "🗺️ Upper Egypt Focus": "🗺️ التركيز على صعيد مصر",
+            "Case Study": "دراسة حالة",
+            "Labor Market": "سوق العمل",
+            "Penetration Initiative": "مبادرة اختراق",
+            "A results-driven workforce development program designed to bridge the gap between academic education and real labor market demands, with a special focus on Upper Egypt.": "برنامج تطوير قوى عاملة يعتمد على النتائج، مصمم لسد الفجوة بين التعليم الأكاديمي ومتطلبات سوق العمل الحقيقية، مع تركيز خاص على صعيد مصر.",
+            "The program integrates market-driven training, professional readiness development, employer partnerships, and post-placement follow-up to ensure sustainable employment outcomes.": "يدمج البرنامج التدريب الموجه نحو السوق، وتطوير الجاهزية المهنية، وشراكات أصحاب العمل، ومتابعة ما بعد التوظيف لضمان نتائج توظيف مستدامة.",
+            "It now stands as a": "إنه يقف الآن كـ",
+            "scalable model for youth employment and workforce development": "نموذج قابل للتوسع لتوظيف الشباب وتطوير القوى العاملة",
+            "across Egypt.": "في جميع أنحاء مصر.",
+            "Students Trained from Assiut & Sohag Universities": "طلاب تم تدريبهم من جامعتي أسيوط وسوهاج",
+            "Successful Job Placements Across Multiple Industries": "توظيف ناجح في مجالات صناعية متعددة",
+            "Achieved Within Just One Year of Launch": "تم تحقيقه خلال عام واحد فقط من الإطلاق",
+            "Market-Aligned Training for Employability Skills": "تدريب متوافق مع السوق لمهارات التوظيف",
+            "Program Impact": "تأثير البرنامج",
+            "A comprehensive program integrating practical skills training, employer partnerships, and post-placement support to deliver real employment outcomes for youth in Upper Egypt.": "برنامج شامل يدمج التدريب على المهارات العملية وشراكات أصحاب العمل ودعم ما بعد التوظيف لتحقيق نتائج توظيف حقيقية للشباب في صعيد مصر.",
+            "Assiut University": "جامعة أسيوط",
+            "Partner Institution": "مؤسسة شريكة",
+            "Sohag University": "جامعة سوهاج",
+            "Multiple Industry Partners": "شركاء صناعيين متعددين",
+            "Hiring & Placement Network": "شبكة التوظيف والتشغيل",
+            "Leadership": "القيادة",
+            "A Word From": "كلمة من",
+            "Our Founder": "مؤسسنا",
+            "Mohamed Gamal": "محمد جمال",
+            "Founder & CEO — EDGE Education": "المؤسس والمدير التنفيذي — EDGE Education",
+            "\"At EDGE, quality and impact are at the core of everything we do — serving as a powerful bridge between ambition and opportunity.\"": "\"في EDGE، الجودة والتأثير هما في صميم كل ما نقوم به — حيث نعمل كجسر قوي بين الطموح والفرصة.\"",
+            "— M. Gamal": "— م. جمال",
+            "At EDGE Education, we believe that real investment begins with people. That is why we are committed to contributing to community development and advancing economic empowerment by preparing and developing young talents and connecting them with real opportunities in the labor market.": "في EDGE Education، نؤمن بأن الاستثمار الحقيقي يبدأ بالناس. ولهذا السبب نحن ملتزمون بالمساهمة في تنمية المجتمع ودفع التمكين الاقتصادي من خلال إعداد وتطوير المواهب الشابة وربطها بفرص حقيقية في سوق العمل.",
+            "We continuously work to identify, nurture, and deliver high-quality talents who can effectively meet the evolving needs of modern businesses and industries.": "نحن نعمل باستمرار على تحديد ورعاية وتقديم مواهب عالية الجودة يمكنها تلبية الاحتياجات المتطورة للأعمال والصناعات الحديثة بشكل فعال.",
+            "We are dedicated to providing professional training and recruitment solutions that help organizations access the right talents while empowering individuals to build meaningful and sustainable careers. Our vision is to create lasting value for both companies and the communities we serve.": "نحن مكرسون لتقديم تدريب مهني وحلول توظيف تساعد المؤسسات في الوصول إلى المواهب المناسبة مع تمكين الأفراد من بناء مسيرات مهنية هادفة ومستدامة. رؤيتنا هي خلق قيمة دائمة للشركات والمجتمعات التي نخدمها.",
+            "CEO — EDGE Education": "المدير التنفيذي — EDGE Education",
+            "Our Team": "فريقنا",
+            "The People Behind": "الأشخاص وراء",
+            "EDGE Education": "EDGE Education",
+            "Founder & Chief Executive Officer": "المؤسس والمدير التنفيذي",
+            "Yasmin Gawish": "ياسمين جاويش",
+            "Operations Manager": "مدير العمليات",
+            "Ibrahim Samy": "إبراهيم سامي",
+            "Head of Project Management": "رئيس إدارة المشاريع",
+            "Ahmed Khaled": "أحمد خالد",
+            "Business Director": "مدير الأعمال",
+            "Official Collaboration": "تعاون رسمي",
+            "Government": "الحكومية",
+            "Partnerships": "الشراكات",
+            "We proudly collaborate with leading governmental institutions that support innovation, education, and sustainable community development across Egypt.": "نحن نتعاون بفخر مع المؤسسات الحكومية الرائدة التي تدعم الابتكار والتعليم وتنمية المجتمع المستدامة في جميع أنحاء مصر.",
+            "Ministry of Higher Education & Scientific Research": "وزارة التعليم العالي والبحث العلمي",
+            "Government Partner": "شريك حكومي",
+            "Ministry of Social Solidarity": "وزارة التضامن الاجتماعي",
+            "Ministry of Communications & Information Technology": "وزارة الاتصالات وتكنولوجيا المعلومات",
+            "Academic Partner": "شريك أكاديمي",
+            "Creativa — Digital Egypt Creativity Centers": "إبداع — مراكز إبداع مصر الرقمية",
+            "Innovation Partner": "شريك الابتكار",
+            "Trusted By": "موثوق بنا من قبل",
+            "Our Clients": "عملاؤنا",
+            "We strengthen the employment ecosystem by supplying businesses across Egypt with evaluated, trained, and performance-oriented professionals.": "نحن نعزز النظام البيئي للتوظيف من خلال تزويد الشركات في جميع أنحاء مصر بمحترفين مقيمين ومدربين وموجهين نحو الأداء.",
+            "National Bank of Egypt": "البنك الأهلي المصري",
+            "Al Ahly Club": "النادي الأهلي",
+            "CIB": "البنك التجاري الدولي",
+            "Mashreq": "المشرق",
+            "Bidayety": "بدايتي",
+            "Vendoor": "فندور",
+            "Cottonil": "قطونيل",
+            "Mcsab": "مكسب",
+            "Tasaheel": "تساهيل",
+            "Baba El Tawfeer": "بابا التوفير",
+            "MetLife": "ميتلايف",
+            "Maar Microfinance": "معاً للتمويل الأصغر",
+            "Landbond": "لاندبوند",
+            "Albatross": "الباتروس",
+            "Vodafone Egypt": "فودافون مصر",
+            "Orange Egypt": "أورنج مصر",
+            "G4S": "جي فور إس",
+            "Green Tree": "جرين تري",
+            "King Life": "كينج لايف",
+            "Golden Plaza": "جولدن بلازا",
+            "Modern Vision": "مودرن فيجن",
+            "ACUD": "شركة العاصمة الإدارية",
+            "Libano-Suisse": "اللبنانية السويسرية",
+            "Chubb": "تشب",
+            "🏥 Medical & Healthcare": "🏥 الطب والرعاية الصحية",
+            "🏗 Real Estate": "🏗 العقارات",
+            "💻 IT & Technology": "💻 تكنولوجيا المعلومات",
+            "🛍 Retail & E-Commerce": "🛍 التجزئة والتجارة الإلكترونية",
+            "📣 Marketing & Media": "📣 التسويق والإعلام",
+            "💳 Financial Services": "💳 الخدمات المالية",
+            "🎓 Education & Training": "🎓 التعليم والتدريب",
+            "📡 Telecommunications": "📡 الاتصالات",
+            "Collaboration": "التعاون",
+            "Strategic": "الاستراتيجية",
+            "Partnership": "الشراكة",
+            "Why Partner With EDGE?": "لماذا الشراكة مع EDGE؟",
+            "Access to pre-qualified, trained candidates": "الوصول إلى مرشحين مؤهلين ومدربين مسبقاً",
+            "Reduced recruitment risk": "تقليل مخاطر التوظيف",
+            "Faster onboarding & productivity": "سرعة في الاندماج والإنتاجية",
+            "Market-aligned training methodologies": "منهجيات تدريب متوافقة مع السوق",
+            "Performance-focused approach": "نهج يركز على الأداء",
+            "Long-term partnership mindset": "عقلية الشراكة طويلة الأمد",
+            "Partnership Models": "نماذج الشراكة",
+            "Recruitment per hire": "التوظيف بالقطعة",
+            "Project-based hiring": "التوظيف القائم على المشاريع",
+            "Mass recruitment initiatives": "مبادرات التوظيف الجماعي",
+            "Corporate training contracts": "عقود تدريب الشركات",
+            "Long-term workforce development": "تطوير القوى العاملة على المدى الطويل",
+            "\"At EDGE, we are committed to delivering talent that performs, teams that align, and partnerships that grow.\"": "\"في EDGE، نحن ملتزمون بتقديم مواهب تؤدي، وفرق تتوافق، وشراكات تنمو.\"",
+            "Ready to Get Your": "هل أنت مستعد للحصول على",
+            "Edge": "ميزتك ",
+            "in the Labor Market?": "في سوق العمل؟",
+            "Join 500+ students and companies who use EDGE Education to build high-performance, work-ready teams. It starts with one conversation.": "انضم إلى أكثر من 500 طالب وشركة يستخدمون EDGE Education لبناء فرق عالية الأداء وجاهزة للعمل. الأمر يبدأ بمحادثة واحدة.",
+            "📍 Maadi, Abrag Othman, Cairo": "📍 المعادي، أبراج عثمان، القاهرة",
+            "📞 01095370720": "📞 01095370720",
+            "🌐 edgeeducation.com": "🌐 edgeeducation.com",
+            "Call Us Now": "اتصل بنا الآن",
+            "View Services": "عرض الخدمات",
+            "Bridging the gap between academic learning and the real labor market — through pre-employment training, recruitment, and economic empowerment.": "سد الفجوة بين التعلم الأكاديمي وسوق العمل الحقيقي — من خلال التدريب ما قبل التوظيف والتوظيف والتمكين الاقتصادي.",
+            "Company": "الشركة",
+            "About Us": "معلومات عنا",
+            "Contact": "اتصل بنا",
+            "Maadi, Abrag Othman": "المعادي، أبراج عثمان",
+            "Cairo, Egypt": "القاهرة، مصر",
+            "© 2025 EDGE Education. All rights reserved.": "© 2025 EDGE Education. جميع الحقوق محفوظة.",
+            "Delivering talent that performs · Privacy Policy": "نقدم مواهب تؤدي · سياسة الخصوصية",
+            "Delivering talent that performs ·": "نقدم مواهب تؤدي ·",
+            "Privacy Policy": "سياسة الخصوصية",
+            "100K": "100 ألف",
+            "20K": "20 ألف",
+            "82%": "82%",
+            "1,300+": "+1,300",
+            "500+": "+500",
+            "50+": "+50",
+            "7+": "+7",
+            "1 yr": "سنة واحدة",
+            "100%": "100%",
+            "01": "01",
+            "02": "02",
+            "03": "03",
+            "04": "04",
+            "EDGE": "EDGE",
+            "Education": "Education"
+        };
+
+        let currentLang = 'en';
+        let currentTheme = 'dark';
+
+        // We will store original texts using a custom attribute on the parent or using a Map.
+        // Better: wrap translatable text nodes in spans if they aren't already.
+        function wrapTextNodes(node) {
+            if (node.nodeType === 3) { // Text node
+                const originalText = node.nodeValue;
+                const text = originalText.replace(/\s+/g, ' ').trim();
+                if (text.length > 0 && translations[text]) {
+                    const span = document.createElement('span');
+                    span.className = 'i18n-el';
+                    span.setAttribute('data-i18n-en', originalText);
+                    span.setAttribute('data-i18n-ar', translations[text]);
+                    span.textContent = currentLang === 'en' ? originalText : translations[text];
+                    node.parentNode.replaceChild(span, node);
+                } else if (text.length > 0) {
+                    // Try to match partial strings if they are exactly one of our dictionary keys
+                    // Not needed if we split correctly, but some might be missed.
+                    // Let's just do exact match.
+                }
+            } else if (node.nodeType === 1 && node.nodeName !== 'SCRIPT' && node.nodeName !== 'STYLE') {
+                // To avoid breaking elements while iterating, we collect them first
+                const children = Array.from(node.childNodes);
+                for (let child of children) {
+                    wrapTextNodes(child);
+                }
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = currentLang;
+
+            document.getElementById('langToggle').innerText = currentLang === 'en' ? 'عربي' : 'English';
+
+            document.querySelectorAll('.i18n-el').forEach(el => {
+                el.textContent = el.getAttribute('data-i18n-' + currentLang);
+            });
+
+            // Also flip the ticker
+            document.querySelectorAll('.ticker-inner span').forEach(el => {
+                if (el.textContent === '·') return;
+            });
+        }
+
+        function toggleTheme() {
+            currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            document.getElementById('themeToggle').innerText = currentTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // First clean up any old i18n-el classes that might have been added by old HTML
+            document.querySelectorAll('.i18n-el').forEach(el => el.classList.remove('i18n-el'));
+
+            wrapTextNodes(document.body);
+            document.getElementById('langToggle').addEventListener('click', toggleLanguage);
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+        });
 
         // Animate progress bars on hero
         window.addEventListener('load', () => {
