@@ -1191,16 +1191,26 @@
 
         .initiative-inner {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 72px;
+            grid-template-columns: 55% 1fr;
+            gap: 56px;
             align-items: center;
+        }
+
+        .initiative-visual-wrap {
+            position: sticky;
+            top: 100px;
+        }
+
+        #initiative .sec-title {
+            font-size: clamp(1.7rem, 3vw, 2.8rem);
+            line-height: 1.05;
         }
 
         .initiative-results {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-top: 32px;
+            gap: 14px;
+            margin-top: 28px;
         }
 
         .result-card {
@@ -1810,10 +1820,21 @@
         @media (max-width: 1024px) {
             .hero-grid,
             .about-grid,
-            .initiative-inner,
             .ceo-inner {
                 grid-template-columns: 1fr;
                 gap: 40px;
+            }
+
+            .initiative-inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .initiative-visual-wrap {
+                position: static;
+                max-width: 600px;
+                margin: 0 auto;
+                width: 100%;
             }
 
             .hero-visual,
@@ -1987,6 +2008,14 @@
 
         /* Mobile portrait */
         @media (max-width: 480px) {
+            .initiative-results {
+                grid-template-columns: 1fr;
+            }
+
+            .initiative-visual-wrap {
+                max-width: 100%;
+            }
+
             nav {
                 padding: 12px 16px;
             }
@@ -2495,7 +2524,7 @@
                 <div class="initiative-text reveal">
                     <span class="initiative-badge">🗺️ Upper Egypt Focus</span>
                     <span class="sec-label">Case Study</span>
-                    <h2 class="sec-title">Labor Market<br>Penetration Initiative</h2>
+                    <h2 class="sec-title">Labor Market Penetration Initiative</h2>
                     <p>A results-driven workforce development program designed to bridge the gap between academic
                         education and real labor market demands, with a special focus on Upper Egypt.</p>
                     <p>The program integrates market-driven training, professional readiness development, employer
@@ -2521,7 +2550,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="reveal reveal-d1">
+                <div class="initiative-visual-wrap reveal reveal-d1">
                     <div
                         style="background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:36px;position:relative;overflow:hidden;">
                         <div
