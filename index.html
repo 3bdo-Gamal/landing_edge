@@ -526,6 +526,8 @@
         .hero-label {
             display: inline-flex;
             align-items: center;
+            flex-wrap: wrap;
+            max-width: 100%;
             gap: 8px;
             background: rgba(26, 158, 110, 0.12);
             border: 1px solid rgba(26, 158, 110, 0.3);
@@ -547,14 +549,12 @@
 
         h1.hero-title {
             font-family: var(--ff-head);
-            font-size: clamp(2rem, 8vw, 4.8rem);
+            font-size: clamp(1.8rem, 8vw, 4.8rem);
             font-weight: 800;
             line-height: 1.0;
             letter-spacing: -0.03em;
             margin-bottom: 22px;
             animation: fadeUp 0.5s 0.08s ease both;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
         }
 
         .hero-title .accent {
@@ -1877,6 +1877,33 @@
             .partner-card.highlight {
                 grid-column: span 1;
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 12px 16px;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            #langToggle {
+                font-size: 0.8rem;
+                padding: 0 8px;
+            }
+
+            .sec {
+                padding: 60px 16px;
+            }
+
+            #hero {
+                padding: 90px 16px 50px;
+            }
+
+            .hero-stats {
+                gap: 16px;
             }
         }
     </style>
